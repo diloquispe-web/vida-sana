@@ -1,0 +1,52 @@
+:root{
+    --tomate:#FF6347;
+    --celeste:#4FC3F7;
+}
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+.navbar{
+    background: var(--tomate) !important;
+}
+
+.hero{
+    background: linear-gradient(135deg,var(--celeste),#2196f3);
+    color:white;
+    padding:100px 20px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:3rem;
+    font-weight:bold;
+}
+
+.card{
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.icono{
+    color:var(--tomate);
+}
+
+footer{
+    background:#222;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.btn-primary{
+    background:var(--tomate);
+    border:none;
+}
+
+.btn-primary:hover{
+    background:#e5533d;
+}
