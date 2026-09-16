@@ -173,9 +173,26 @@ const url =
 
 );
 
+
 if(confirmar){
 
+    alert(
+        "Pedido preparado correctamente. Se abrirá WhatsApp para finalizar el envío."
+    );
+
     window.open(url, "_blank");
+
+    carrito = [];
+
+    total = 0;
+
+    actualizarCarrito();
+
+    document.getElementById("nombre").value = "";
+
+    document.getElementById("telefono").value = "";
+
+    document.getElementById("direccion").value = "";
 
 }
 
