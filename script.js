@@ -17,17 +17,29 @@ window.addEventListener("load", function () {
 let carrito = [];
 let total = 0;
 
+
 function agregarProducto(nombre, precio) {
 
-    carrito.push({
-        nombre: nombre,
-        precio: precio
-    });
+    let productoExistente =
+        carrito.find(item => item.nombre === nombre);
 
-    total += precio;
+    if(productoExistente){
+
+        productoExistente.cantidad++;
+
+    }else{
+
+        carrito.push({
+            nombre: nombre,
+            precio: precio,
+            cantidad: 1
+        });
+
+    }
 
     actualizarCarrito();
 }
+
 
 function actualizarCarrito() {
 
@@ -38,25 +50,45 @@ function actualizarCarrito() {
 
     lista.innerHTML = "";
 
-    
+    total = 0;
+
     carrito.forEach((item, indice) => {
 
-    const li = document.createElement("li");
+        total += item.precio * item.cantidad;
 
-    li.innerHTML =
-        item.nombre +
-        " - $" +
-        item.precio.toFixed(2) +
-        ' <button onclick="eliminarProducto(' +
-        indice +
-        ')" class="btn btn-sm btn-danger ms-2">X</button>';
+        const li = document.createElement("li");
 
-    lista.appendChild(li);
-});
+        li.innerHTML = `
+            <strong>${item.nombre}</strong>
 
-       
+            <button
+                onclick="disminuirCantidad(${indice})"
+                class="btn btn-sm btn-secondary ms-2">
+                -
+            </button>
+
+            <span class="mx-2">
+                ${item.cantidad}
+            </span>
+
+            <button
+                onclick="aumentarCantidad(${indice})"
+                class="btn btn-sm btn-success">
+                +
+            </button>
+
+            <span class="ms-3">
+                $${(item.precio * item.cantidad).toFixed(2)}
+            </span>
+        `;
+
+        lista.appendChild(li);
+
+    });
+
     totalVisual.textContent = total.toFixed(2);
 }
+
 
 function eliminarProducto(indice) {
         
@@ -66,6 +98,29 @@ function eliminarProducto(indice) {
         
     actualizarCarrito();
 }
+
+function aumentarCantidad(indice){
+
+    carrito[indice].cantidad++;
+
+    actualizarCarrito();
+
+}
+
+function disminuirCantidad(indice){
+
+    carrito[indice].cantidad--;
+
+    if(carrito[indice].cantidad <= 0){
+
+        carrito.splice(indice, 1);
+
+    }
+
+    actualizarCarrito();
+
+}
+
 
 // ===================================
 // Mostrar u ocultar datos bancarios
@@ -132,11 +187,20 @@ if(telefono.trim() === ""){
     carrito.forEach(item => {
 
         productos +=
-            "• " +
-            item.nombre +
-            " - $" +
-            item.precio.toFixed(2) +
-            "\n";
+
+    "• " +
+
+    item.nombre +
+
+    " x" +
+
+    item.cantidad +
+
+    " - $" +
+
+    (item.precio * item.cantidad).toFixed(2) +
+
+    "\n";
     });
 
     const mensaje =
