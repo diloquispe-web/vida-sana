@@ -56,8 +56,11 @@ function actualizarCarrito() {
 
 
     function eliminarProducto(indice) {
+        
     total -= carrito[indice].precio;
+        
     carrito.splice(indice, 1);
+        
     actualizarCarrito();
 }
     
