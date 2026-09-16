@@ -80,9 +80,31 @@ body{
     transition:all 0.3s ease;
 }
 
-.card:hover{
+/* TARJETAS */
 
-    #listaCarrito{
+.card{
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.10);
+    transition:all 0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card-img-top{
+    height:180px;
+    width:100%;
+    object-fit:contain;
+    background:white;
+    padding:10px;
+}
+
+/* CARRITO */
+
+#listaCarrito{
     padding-left:20px;
 }
 
@@ -94,18 +116,4 @@ body{
 
 #datosTransferencia{
     display:block;
-}
-
-.card-img-top {
-
-    height: 250px;
-
-    object-fit: cover;
-
-}
-
-.card {
-
-    overflow: hidden;
-
 }
