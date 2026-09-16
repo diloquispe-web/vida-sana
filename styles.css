@@ -81,3 +81,17 @@ body{
 }
 
 .card:hover{
+
+    #listaCarrito{
+    padding-left:20px;
+}
+
+#carrito{
+    background:#f8f9fa;
+    padding:15px;
+    border-radius:10px;
+}
+
+#datosTransferencia{
+    display:block;
+}
