@@ -133,7 +133,7 @@ Método de pago:
 ${pago}`;
 
     const numero =
-        "593999999999";
+        "593991555421";
 
     const url =
         `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
