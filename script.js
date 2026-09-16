@@ -38,18 +38,29 @@ function actualizarCarrito() {
 
     lista.innerHTML = "";
 
-    carrito.forEach(item => {
+    
+    carrito.forEach((item, indice) => {
 
-        const li = document.createElement("li");
+    const li = document.createElement("li");
 
-        li.textContent =
-            item.nombre +
-            " - $" +
-            item.precio.toFixed(2);
+    li.innerHTML =
+        item.nombre +
+        " - $" +
+        item.precio.toFixed(2) +
+        ' <button onclick="eliminarProducto(' +
+        indice +
+        ')" class="btn btn-sm btn-danger ms-2">X</button>';
 
-        lista.appendChild(li);
-    });
+    lista.appendChild(li);
+});
 
+
+    function eliminarProducto(indice) {
+    total -= carrito[indice].precio;
+    carrito.splice(indice, 1);
+    actualizarCarrito();
+}
+    
     totalVisual.textContent = total.toFixed(2);
 }
 
