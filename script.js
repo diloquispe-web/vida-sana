@@ -158,7 +158,8 @@ ${pago}`;
 
     const numero =
         "593991555421";
-
+const url =
+    `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     
    const confirmar = confirm(
 
