@@ -98,6 +98,16 @@ function enviarWhatsApp() {
     const direccion =
         document.getElementById("direccion").value;
 
+if(nombre.trim() === ""){
+    alert("Ingrese su nombre");
+    return;
+}
+
+if(telefono.trim() === ""){
+    alert("Ingrese su teléfono");
+    return;
+}
+    
     const pago =
         document.querySelector(
             'input[name="pago"]:checked'
@@ -140,3 +150,22 @@ ${pago}`;
 
     window.open(url, "_blank");
 }
+window.addEventListener("load", function () {
+
+    const opcion =
+        document.querySelector(
+            'input[name="pago"]:checked'
+        );
+
+    const datos =
+        document.getElementById(
+            "datosTransferencia"
+        );
+
+    if (opcion && opcion.value === "Transferencia") {
+
+        datos.style.display = "block";
+
+    }
+
+});
