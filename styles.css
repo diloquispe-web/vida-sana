@@ -95,3 +95,17 @@ body{
 #datosTransferencia{
     display:block;
 }
+
+.card-img-top {
+
+    height: 250px;
+
+    object-fit: cover;
+
+}
+
+.card {
+
+    overflow: hidden;
+
+}
