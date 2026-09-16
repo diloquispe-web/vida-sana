@@ -54,17 +54,17 @@ function actualizarCarrito() {
     lista.appendChild(li);
 });
 
+       
+    totalVisual.textContent = total.toFixed(2);
+}
 
-    function eliminarProducto(indice) {
+function eliminarProducto(indice) {
         
     total -= carrito[indice].precio;
         
     carrito.splice(indice, 1);
         
     actualizarCarrito();
-}
-    
-    totalVisual.textContent = total.toFixed(2);
 }
 
 // ===================================
