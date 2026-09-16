@@ -159,10 +159,27 @@ ${pago}`;
     const numero =
         "593991555421";
 
-    const url =
-        `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+    
+   const confirmar = confirm(
+
+    "Resumen del pedido\n\n" +
+
+    "Total: $" +
+
+    total.toFixed(2) +
+
+    "\n\n¿Desea enviarlo por WhatsApp?"
+
+);
+
+if(confirmar){
 
     window.open(url, "_blank");
+
+}
+
+
+
 }
 window.addEventListener("load", function () {
 
